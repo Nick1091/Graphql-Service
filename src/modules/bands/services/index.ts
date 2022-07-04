@@ -7,13 +7,13 @@ export default class BandAPI extends RESTDataSource {
   }
 
   async getBand(id: string) {
-    return this.get(`${this.baseURL}/${id}`);
+    return this.get(`${this.baseURL}/${encodeURIComponent(id)}`);
   }
 
   async getBands() {
     const data = await this.get(`${this.baseURL}`, {
       // Query parameters
     });
-    return data.results;
+    return data;
   }
 }

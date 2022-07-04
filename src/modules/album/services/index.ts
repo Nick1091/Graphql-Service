@@ -11,9 +11,8 @@ export default class AlbumsAPI extends RESTDataSource {
   }
 
   async getAlbums() {
-    const data = await this.get(`${this.baseURL}`, {
+    return await this.get(`${this.baseURL}`, {
       // Query parameters
     });
-    return data.results;
   }
 }

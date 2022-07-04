@@ -1,11 +1,24 @@
 import { gql } from 'apollo-server';
 
 export default gql `
+    type UserType {
+        firstName: String
+        lastName: String
+        password: String
+        email: String
+    }
     type User {
         id: ID!
         firstName: String
-        secondName: String
-        password: String
+        lastName: String
+        password: String!
+        email: String!
+    }
+
+    input userInput {
+        firstName: String!
+        lastName: String!
+        password: String!
         email: String!
     }
 
@@ -16,6 +29,9 @@ export default gql `
     type Query {
         jwt( email: String!, password: String! ): JWT
         user( id: ID!): User
-        users: [User]
+    }
+    
+    type Mutation {
+        register(input: userInput): User
     }
 `

@@ -10,7 +10,7 @@ export default gql `
         birthPlace: String
         country: String
         bands: [String]
-        instruments: String
+        instruments: [String] 
     }
 
     extend type Query {
@@ -18,3 +18,28 @@ export default gql `
         artists: [Artist]
     }
 `
+//instruments rewrite
+// artists(
+//     pagination: PaginationInput
+//     filter: FilterArtistsInput
+//   ): ArtistsPagination!
+
+// input PaginationInput {
+//   offset: Int
+//   limit: Int
+// }
+
+// input FilterArtistsInput {
+//   firstName: String
+//   secondName: String
+//   middleName: String
+//   birthDate: String
+//   birthPlace: String
+//   country: String
+// }
+// type ArtistsPagination {
+//     offset: Int
+//     limit: Int
+//     total: Int
+//     items: [Artist!]
+//   }

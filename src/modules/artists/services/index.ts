@@ -14,6 +14,6 @@ export default class ArtistsAPI extends RESTDataSource {
     const data = await this.get(`${this.baseURL}`, {
       // Query parameters
     });
-    return data.results;
+    return data;
   }
 }

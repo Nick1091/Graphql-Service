@@ -11,9 +11,8 @@ export default class TrackAPI extends RESTDataSource {
   }
 
   async getTracks() {
-    const data = await this.get(`${this.baseURL}`, {
+    return this.get(`${this.baseURL}`, {
       // Query parameters
     });
-    return data.results;
   }
 }

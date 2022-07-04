@@ -13,22 +13,22 @@ input MemberInput {
   years: String
 }
 
-input CreateBandInput {
-  name: String!
-  origin: String
-  members: [MemberInput]
-  website: String
-  genresIds: [String]
-}
+# input CreateBandInput {
+#   name: String!
+#   origin: String
+#   members: [MemberInput]
+#   website: String
+#   genresIds: [String]
+# }
 
-input UpdateBandInput {
-  id: ID!
-  name: String
-  origin: String
-  members: [MemberInput]
-  website: String
-  genresIds: [String]
-}
+# input UpdateBandInput {
+#   id: ID!
+#   name: String
+#   origin: String
+#   members: [MemberInput]
+#   website: String
+#   genresIds: [String]
+# }
 
 type Band {
     id: ID!
