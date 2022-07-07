@@ -4,7 +4,8 @@ export default gql `
     type Track {
         id: ID!
         title: String!
-        albums: [Album]
+        album: Album
+        artists: [Artist]
         bands: [Band]
         duration: Int
         released: Int
@@ -29,8 +30,8 @@ export default gql `
     # }
 
     extend type Query {
-        tracks: [Track]
-        track(id: ID!): Track
+        tracks: [Track]!
+        track(id: ID!): Track!
     }
     # extend type Mutation {
     #     createTrack(createTrackInput: CreateTrackInput): Track!

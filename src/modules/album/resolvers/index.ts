@@ -9,7 +9,19 @@ export default {
     },
   },
   Album: {
-    id: (parent: any) => parent._id
+    id: (parent: any) => parent._id,
+    artists: async ({ artistsIds }: any, _ :any, { dataSources }: any) => {
+      return artistsIds.map( async (id: string) => await dataSources.artistsAPI.getArtist(id))
+    },
+    bands: async ({ bandsIds }: any, _ :any, { dataSources }: any) => {
+      return bandsIds.map( async (id: string) => await dataSources.bandsAPI.getBand(id))
+    },
+    tracks: async ({ trackIds }: any, _ :any, { dataSources }: any) => {
+      return trackIds.map( async (id: string) => await dataSources.tracksAPI.getTrack(id))
+    },
+    genres: async ({ genresIds }: any, _ :any, { dataSources }: any) => {
+      return genresIds.map( async (id: string) => await dataSources.genresAPI.getGenre(id))
+    },
   }
 };
 // willSendRequest(request: RequestOptions) {   

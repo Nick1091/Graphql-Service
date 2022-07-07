@@ -10,6 +10,18 @@ export default gql `
         tracks: [ID!]
         genres: [ID!]
     }
+
+    # input NewAlbumInput {
+    #     name: String!
+    #     released: Int
+    #     artistsIds: [ID]
+    #     bandsIds: [ID]
+    #     trackIds: [ID]
+    #     genresIds: [ID]
+    # }
+    # type Mutation {
+    #     createAlbum(newAlbum: NewAlbumInput): Album
+    # }
     type Album {
         id: ID!
         name: String

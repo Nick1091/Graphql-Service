@@ -11,7 +11,7 @@ export default gql `
         id: ID!
         firstName: String
         lastName: String
-        password: String!
+        password: String
         email: String!
     }
 
@@ -32,6 +32,6 @@ export default gql `
     }
     
     type Mutation {
-        register(input: userInput): User
+        register(userInput: userInput): User
     }
 `

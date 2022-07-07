@@ -1,3 +1,6 @@
+import { gql } from 'apollo-server';
+
+export default gql `
 type Favourites {
     id: ID!
     userId: ID
@@ -6,3 +9,8 @@ type Favourites {
     artists: [Artist]
     tracks: [Track]
 }
+
+extend type Query {
+
+}
+`

@@ -7,8 +7,8 @@ export default {
     },
     jwt: async (_: any, data: {email: string, password: string }, { dataSources }:any) => {
       try {
-        let { jwt } = await dataSources.usersAPI.getJWT(data);
-        return { jwt }
+        let jwt = await dataSources.usersAPI.getJWT(data);
+        return jwt 
       } catch {
         return 
       }
@@ -18,9 +18,8 @@ export default {
     id: (parent: any) => parent._id
   },
   Mutation: {
-    register: async (_: any, input: { input: UserType }, { dataSources }: any) => {
-      console.log(dataSources)
-      return dataSources.usersAPI.createUser(input);
+    register: async (_: any, userInput: { userInput: UserType }, { dataSources }: any) => {
+      return dataSources.usersAPI.createUser(userInput);
     }
   }
 };

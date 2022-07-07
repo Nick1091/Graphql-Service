@@ -21,17 +21,12 @@ export const server = new ApolloServer({
       albumsAPI: new AlbumsAPI(),
       genresAPI: new GenresAPI(),
       usersAPI: new UsersAPI(),
-      tracksAPI: new TrackAPI()
+      tracksAPI: new TrackAPI(),
+
     }
   },
   context: async ({ req }) => ({
     token: req.headers.authorization || ''
-    // config: {
-    //   headers: {
-    //     Authorization: token
-    //   }
-    // }
-    // return { token };
   })
 });
 
