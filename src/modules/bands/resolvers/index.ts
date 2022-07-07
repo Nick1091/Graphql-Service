@@ -49,7 +49,7 @@ export default {
     deleteBand: async (_: any, id: {id: string}, { dataSources }: any) => {
       return await dataSources.bandsAPI.deleteBand(id.id)
     },
-    updateBand: async (_: any, args: { id: string, updateInputBand: { updateInputBand: TypeBand }}, { dataSources }: any) => {
+    updateBand: async (_: any, args: { id: string, updateInputBand: TypeBand }, { dataSources }: any) => {
       const { id, updateInputBand } = args;
       return await dataSources.bandsAPI.updateBand(id, updateInputBand);
     }

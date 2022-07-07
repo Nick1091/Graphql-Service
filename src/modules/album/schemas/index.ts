@@ -11,17 +11,22 @@ export default gql `
         genres: [ID!]
     }
 
-    # input NewAlbumInput {
-    #     name: String!
-    #     released: Int
-    #     artistsIds: [ID]
-    #     bandsIds: [ID]
-    #     trackIds: [ID]
-    #     genresIds: [ID]
-    # }
-    # type Mutation {
-    #     createAlbum(newAlbum: NewAlbumInput): Album
-    # }
+    input createAlbum {
+        name: String!
+        released: Int
+        artistsIds: [ID]
+        bandsIds: [ID]
+        trackIds: [ID]
+        genresIds: [ID]
+    }
+    input updateAlbum {
+        name: String!
+        released: Int
+        artistsIds: [ID]
+        bandsIds: [ID]
+        trackIds: [ID]
+        genresIds: [ID]
+    }
     type Album {
         id: ID!
         name: String
@@ -34,6 +39,11 @@ export default gql `
     }
     extend type Query {
         album(id: ID!): Album
-        albums: [Album]
+        albums(limit: Int, offset: Int): [Album]
+    }
+    extend type Mutation {
+        createAlbum(InputAlbum: createAlbum): Album!
+        updateAlbum(id: ID!, InputAlbum: updateAlbum): Album!
+        deleteAlbum(id: ID!): Delete!
     }
 `

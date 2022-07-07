@@ -14,8 +14,14 @@ export default gql `
         deletedCount: Int
     }
 
-    input InputGenre {
+    input InputGenreUpdate {
         name: String
+        description: String
+        country: String
+        year: Int
+    }
+    input InputGenreCreate {
+        name: String!
         description: String
         country: String
         year: Int
@@ -27,8 +33,8 @@ export default gql `
     }
 
     extend type Mutation {
-        createGenre(createGenre: InputGenre ): Genre!
-        updateGenre(id: ID!, updateGenre: InputGenre ): Genre!
+        createGenre(createGenre: InputGenreCreate ): Genre!
+        updateGenre(id: ID!, updateGenre: InputGenreUpdate ): Genre!
         deleteGenre(id:ID): Delete!
     }
 `

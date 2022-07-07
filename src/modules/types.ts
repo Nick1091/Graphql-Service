@@ -29,13 +29,30 @@ export type MemberInput = {
 export type TypeBand = {
   name: string
   origin?: string
-  members?: [MemberInput]
+  members?: MemberInput[]
   website?: string
-  genresIds?: [string]
+  genresIds?: string[]
 }
 export type TypeGenre = {
   name: string
   description: string
   country: string
   year: number
+}
+export type TypeTrack = {
+  title: string
+  albumId: string
+  bandIds: string[]
+  artistsIds: string[]
+  duration: number
+  released: number
+  genresIds: string[]      
+}
+export type TypeAlbum = {
+  name: string
+  released?: number
+  artistsIds?: string[]
+  bandsIds?: string[]
+  trackIds?: string[]
+  genresIds?: string[]      
 }

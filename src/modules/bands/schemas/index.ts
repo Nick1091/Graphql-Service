@@ -16,8 +16,15 @@ input MemberInput {
   years: [String]
 }
 
-input BandInput {
+input BandInputCreate {
   name: String!
+  origin: String
+  members: [MemberInput]
+  website: String
+  genresIds: [String]
+}
+input BandInputUpdate {
+  name: String
   origin: String
   members: [MemberInput]
   website: String
@@ -44,8 +51,8 @@ extend type Query {
 }
 
 extend type Mutation {
-  createBand(createInputBand: BandInput): Band!
-  updateBand(id: ID!, updateInputBand: BandInput): Band!
+  createBand(createInputBand: BandInputCreate): Band!
+  updateBand(id: ID!, updateInputBand: BandInputUpdate): Band!
   deleteBand(id: ID!): Delete!
 }
 `
