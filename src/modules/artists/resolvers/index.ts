@@ -13,11 +13,11 @@ export default {
   Artist: {
     id: (parent: any) => parent._id,
     bands: async ({ bandsIds }: any, _ :any, { dataSources }: any) => {
-      return await Promise.all( bandsIds.map( async (ids: string) => {
+      return await bandsIds.map( async (ids: string) => {
         const arrBand = await dataSources.bandsAPI.getBand(ids);
         if(arrBand === null || arrBand === '') return
         return arrBand
-      }))
+      })
     },
   },
   Mutation: {

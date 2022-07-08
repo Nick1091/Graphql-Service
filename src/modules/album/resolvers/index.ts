@@ -14,35 +14,35 @@ export default {
     id: (parent: any) => parent._id,
     artists: async ({ artistsIds }: any, _ :any, { dataSources }: any) => {
       if(artistsIds === undefined || artistsIds === null) return null
-      return await Promise.all(artistsIds.map( async (id: string) => {
+      return await artistsIds.map( async (id: string) => {
         const artist = await dataSources.artistsAPI.getArtist(id) 
         if(artist === null || artist === '') return
         return artist
-      }))
+      })
     },
     bands: async ({bandsIds} : any, _ :any, { dataSources }: any) => {
       if(bandsIds === undefined || bandsIds === null) return null
-      return await Promise.all(bandsIds.map( async (id: string) => {
+      return await bandsIds.map( async (id: string) => {
         const band = await dataSources.bandsAPI.getBand(id) 
         if(band === null || band === '') return
         return band
-      }))
+      })
     },
     tracks: async ({ trackIds }: any, _ :any, { dataSources }: any) => {
       if(trackIds === undefined || trackIds === null) return null
-      return await Promise.all(trackIds.map( async (id: string) => {
+      return await trackIds.map( async (id: string) => {
         const track = await dataSources.tracksAPI.getTrack(id) 
         if(track === null || track === '') return
         return track
-      }))
+      })
     },
     genres: async ({ genresIds }: any, _ :any, { dataSources }: any) => {
       if(genresIds === undefined || genresIds === null) return null
-      return await Promise.all(genresIds.map( async (id: string) => {
+      return await genresIds.map( async (id: string) => {
         const genre = await dataSources.genresAPI.getGenre(id) 
         if(genre === null || genre === '') return
         return genre
-      }))
+      })
     },
   },
   Mutation: {

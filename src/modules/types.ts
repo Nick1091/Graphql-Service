@@ -1,8 +1,8 @@
 export type UserType = {
-  firstName: string
-  secondName: string
-  password: string
-  email: string
+  firstName?: string
+  secondName?: string
+  password?: string
+  email?: string
 }
 
 export type TypeArtist = {
@@ -27,32 +27,37 @@ export type MemberInput = {
   years?: string
 }
 export type TypeBand = {
-  name: string
+  name?: string
   origin?: string
   members?: MemberInput[]
   website?: string
   genresIds?: string[]
 }
 export type TypeGenre = {
-  name: string
-  description: string
-  country: string
-  year: number
+  name?: string
+  description?: string
+  country?: string
+  year?: number
 }
 export type TypeTrack = {
-  title: string
-  albumId: string
-  bandIds: string[]
-  artistsIds: string[]
-  duration: number
-  released: number
-  genresIds: string[]      
+  title?: string
+  albumId?: string
+  bandsIds?: string[]
+  artistsIds?: string[]
+  duration?: number
+  released?: number
+  genresIds?: string[]      
 }
 export type TypeAlbum = {
-  name: string
+  name?: string
   released?: number
   artistsIds?: string[]
   bandsIds?: string[]
   trackIds?: string[]
   genresIds?: string[]      
+}
+
+export type TypeFavorites = {
+  type: 'band' | 'genre' | 'artist' | 'track'
+  id: string
 }

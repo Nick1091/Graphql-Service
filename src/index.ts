@@ -8,6 +8,7 @@ import AlbumsAPI from "./modules/album/services";
 import GenresAPI from "./modules/genres/services";
 import UsersAPI from "./modules/users/services";
 import TrackAPI from "./modules/tracks/services";
+import FavoritesAPI from "./modules/favorites/services";
 
 export const server = new ApolloServer({
   typeDefs,
@@ -22,7 +23,7 @@ export const server = new ApolloServer({
       genresAPI: new GenresAPI(),
       usersAPI: new UsersAPI(),
       tracksAPI: new TrackAPI(),
-
+      favoritesAPI: new FavoritesAPI(),
     }
   },
   context: async ({ req }) => ({

@@ -5,5 +5,6 @@ import resolversAlbums  from './album/resolvers';
 import resolversGenres  from './genres/resolvers';
 import resolversTracks  from './tracks/resolvers';
 import resolversUsers  from './users/resolvers';
+import resolversFavorites  from './favorites/resolvers';
 
-export const resolvers = mergeResolvers([resolversArtists, resolversBands, resolversAlbums, resolversGenres, resolversTracks, resolversUsers])
+export const resolvers = mergeResolvers([resolversArtists, resolversBands, resolversAlbums, resolversGenres, resolversTracks, resolversUsers, resolversFavorites])
