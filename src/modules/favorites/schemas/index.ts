@@ -10,12 +10,7 @@ export default gql `
         artists: [Artist]
         tracks: [Track]
     }
-    enum EnumFavorites {
-        bands
-        genres
-        artists
-        tracks
-     }
+
     extend type Mutation {
         addTrackToFavourites(id:ID!): Favorites!
         addBandToFavourites(id:ID): Favorites!

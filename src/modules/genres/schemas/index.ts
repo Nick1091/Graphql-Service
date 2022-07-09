@@ -9,11 +9,6 @@ export default gql `
         year: Int
     }
 
-    type Delete {
-        acknowledged: Boolean
-        deletedCount: Int
-    }
-
     input InputGenreUpdate {
         name: String
         description: String
@@ -28,13 +23,13 @@ export default gql `
     }
 
     extend type Query {
-        genre(id: ID!): Genre!
-        genres(limit: Int, offset: Int): [Genre]!
+        genre(id: ID!): Genre
+        genres(limit: Int, offset: Int): [Genre]
     }
 
     extend type Mutation {
-        createGenre(createGenre: InputGenreCreate ): Genre!
-        updateGenre(id: ID!, updateGenre: InputGenreUpdate ): Genre!
-        deleteGenre(id:ID): Delete!
+        createGenre(createGenre: InputGenreCreate ): Genre
+        updateGenre(id: ID!, updateGenre: InputGenreUpdate ): Genre
+        deleteGenre(id:ID): Delete
     }
 `

@@ -1,4 +1,5 @@
 import { RequestOptions, RESTDataSource } from 'apollo-datasource-rest';
+import { CONST_ERRORS } from '../../constants';
 import { UserType } from 'src/modules/types';
 
 export default class UsersAPI extends RESTDataSource {
@@ -11,16 +12,25 @@ export default class UsersAPI extends RESTDataSource {
   }
 
   async getUser (id: string) {
-    const data = this.get(`${this.baseURL}/${id}`);
-    return data
+    try{
+      if(id === '') throw new Error(`500: ${CONST_ERRORS.ID}`)
+      const data = await this.get(`${this.baseURL}/${id}`);
+    } catch (err) {
+      (err  as unknown as Error).message = `500: ${CONST_ERRORS.ID}`
+      return err
+    }
   }
   async createUser ( userInput: { userInput: UserType } ) {
     const data = await this.post('/register', userInput.userInput)
     return data;
   }
   async getJWT ( userData: {email: string, password: string }) {
-    const data = await this.post('/login', {...userData})
-    this.context.token = data.jwt;
-    return data;
+    try{
+      const data = await this.post('/login', {...userData})
+      this.context.token = data.jwt;
+      return data;
+    } catch (err){
+      return (err)
+    }
   }
 }

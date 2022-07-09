@@ -18,14 +18,16 @@ export default gql `
         bandsIds: [ID]
         trackIds: [ID]
         genresIds: [ID]
+        image: String
     }
     input updateAlbum {
-        name: String!
+        name: String
         released: Int
         artistsIds: [ID]
         bandsIds: [ID]
         trackIds: [ID]
         genresIds: [ID]
+        image: String
     }
     type Album {
         id: ID!

@@ -40,19 +40,14 @@ type Band {
   genres: [Genre]
 }
 
-type Delete {
-  acknowledged: Boolean
-  deletedCount: Int
-}
-
 extend type Query {
-  band( id: ID! ): Band!
-  bands(limit: Int, offset: Int): [Band]!
+  band( id: ID! ): Band
+  bands(limit: Int, offset: Int): [Band]
 }
 
 extend type Mutation {
-  createBand(createInputBand: BandInputCreate): Band!
-  updateBand(id: ID!, updateInputBand: BandInputUpdate): Band!
-  deleteBand(id: ID!): Delete!
+  createBand(createInputBand: BandInputCreate): Band
+  updateBand(id: ID!, updateInputBand: BandInputUpdate): Band
+  deleteBand(id: ID!): Delete
 }
 `

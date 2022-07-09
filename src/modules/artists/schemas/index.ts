@@ -20,7 +20,7 @@ export default gql `
         birthDate: String
         birthPlace: String
         country: String
-        bandsIds: [ID!]
+        bandsIds: [ID]
         instruments: [String] 
     }
     input CreateArtists {
@@ -30,7 +30,7 @@ export default gql `
         middleName: String
         birthDate: String
         birthPlace: String
-        bandsIds: [ID!]
+        bandsIds: [ID]
         instruments: [String] 
     }
     type Delete {
@@ -40,12 +40,12 @@ export default gql `
 
     extend type Mutation {
         createArtist(inputCreateArtist: CreateArtists): Artist!
-        deleteArtist(id: ID!): Delete!
+        deleteArtist(id: ID!): Delete
         updateArtist(id: ID!, inputUpdateArtists: UpdateArtist): Artist!
     }
 
     extend type Query {
-        artist( id: ID! ): Artist!
-        artists(limit: Int, offset: Int): [Artist]!
+        artist( id: ID! ): Artist
+        artists(limit: Int, offset: Int): [Artist]
     }
 `

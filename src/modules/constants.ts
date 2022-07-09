@@ -4,3 +4,6 @@ export const FAVOURITES  = {
   artists: 'artists',
   tracks: 'tracks',
 }
+export const CONST_ERRORS = {
+  ID: "Id is not a valid"
+}

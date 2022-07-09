@@ -21,8 +21,8 @@ export default gql `
         released: Int
         genresIds: [ID]        
     }
-    input TrackInputUpdate {
-        title: String
+    input updateTrack {
+        title: String!
         albumId: ID
         bandsIds: [ID]
         artistsIds: [ID]
@@ -31,18 +31,13 @@ export default gql `
         genresIds: [ID]        
     }
 
-    type Delete {
-        acknowledged: Boolean
-        deletedCount: Int
-    }
-
     extend type Query {
-        tracks(limit: Int, offset: Int): [Track]!
-        track(id: ID!): Track!
+        tracks(limit: Int, offset: Int): [Track]
+        track(id: ID!): Track
     }
     extend type Mutation {
-        createTrack(createTrack: createTrack): Track!
-        updateTrack(id: ID!, updateTrack: TrackInputUpdate):Track!
+        createTrack(createTrack: createTrack): Track
+        updateTrack(id: ID!, updateTrack: updateTrack):Track
         deleteTrack(id: ID!): Delete
     }
 `

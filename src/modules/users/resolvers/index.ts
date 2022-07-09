@@ -1,24 +1,23 @@
-import { UserType } from "src/modules/types";
+import { UserType, UserTypeParent } from "src/modules/types";
 
 export default {
   Query: {
-    user: async (parent :any, { id } :any, { dataSources }:any) => {
+    user: async (_:null, { id }: { id: string }, { dataSources }:any) => {
       return dataSources.usersAPI.getUser(id);
     },
-    jwt: async (_: any, data: {email: string, password: string }, { dataSources }:any) => {
+    jwt: async (_:null, data: {email: string, password: string }, { dataSources }:any) => {
       try {
-        let jwt = await dataSources.usersAPI.getJWT(data);
-        return jwt 
+        return await dataSources.usersAPI.getJWT(data);
       } catch {
         return 
       }
     }
   },
   User: {
-    id: (parent: any) => parent._id
+    id: (parent: UserTypeParent) => parent._id
   },
   Mutation: {
-    register: async (_: any, userInput: { userInput: UserType }, { dataSources }: any) => {
+    register: async (_:null, userInput: { userInput: UserType }, { dataSources }: any) => {
       return dataSources.usersAPI.createUser(userInput);
     }
   }
