@@ -10,6 +10,7 @@ import UsersAPI from "./modules/users/services";
 import TrackAPI from "./modules/tracks/services";
 import FavoritesAPI from "./modules/favorites/services";
 
+const PORT = process.env.PORT || 4000;
 export const server = new ApolloServer({
   typeDefs,
   resolvers,
@@ -31,6 +32,6 @@ export const server = new ApolloServer({
   })
 });
 
-server.listen().then(({ url }) => {
+server.listen(PORT).then(({ url }) => {
   console.log(`🚀 Server ready at ${url}`)
 });

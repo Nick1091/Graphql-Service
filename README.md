@@ -2,7 +2,6 @@
 - git clone https://github.com/Nick1091/Graphql-Service.git
 - checkout develop branch
 - npm install
-- rename .env.example to .env
 - use https://github.com/rolling-scopes-school/node-graphql-service to test this application
 - npm run start
 ## Use Application
