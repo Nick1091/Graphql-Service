@@ -22,6 +22,6 @@ export default gql `
         removeGenreToFavourites(id:ID): Favorites!
     }
     extend type Query {
-        getFavourites: Favorites!
+        favourites: Favorites!
     }
 `

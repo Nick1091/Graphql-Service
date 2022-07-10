@@ -14,15 +14,15 @@ export default class UsersAPI extends RESTDataSource {
   async getUser (id: string) {
     try{
       if(id === '') throw new Error(`500: ${CONST_ERRORS.ID}`)
-      const data = await this.get(`${this.baseURL}/${id}`);
+      return await this.get(`${this.baseURL}/${id}`);
     } catch (err) {
       (err  as unknown as Error).message = `500: ${CONST_ERRORS.ID}`
       return err
     }
   }
   async createUser ( userInput: { userInput: UserType } ) {
-    const data = await this.post('/register', userInput.userInput)
-    return data;
+    return await this.post('/register', userInput.userInput)
+
   }
   async getJWT ( userData: {email: string, password: string }) {
     try{
