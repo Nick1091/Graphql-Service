@@ -8,8 +8,8 @@ export default {
     jwt: async (_:null, data: {email: string, password: string }, { dataSources }:any) => {
       try {
         return await dataSources.usersAPI.getJWT(data);
-      } catch {
-        return 
+      } catch (err) {
+        return err
       }
     }
   },
