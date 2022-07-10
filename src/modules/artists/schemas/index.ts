@@ -39,9 +39,9 @@ export default gql `
     }
 
     extend type Mutation {
-        createArtist(inputCreateArtist: CreateArtists): Artist!
+        createArtist(inputCreateArtist: CreateArtists): Artist
         deleteArtist(id: ID!): Delete
-        updateArtist(id: ID!, inputUpdateArtists: UpdateArtist): Artist!
+        updateArtist(id: ID!, inputUpdateArtists: UpdateArtist): Artist
     }
 
     extend type Query {
