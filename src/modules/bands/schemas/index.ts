@@ -23,6 +23,7 @@ input BandInputCreate {
   website: String
   genresIds: [String]
 }
+
 input BandInputUpdate {
   name: String
   origin: String

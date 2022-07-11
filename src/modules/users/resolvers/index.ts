@@ -9,7 +9,7 @@ export default {
       try {
         return await dataSources.usersAPI.getJWT(data);
       } catch {
-        return 
+        return
       }
     }
   },

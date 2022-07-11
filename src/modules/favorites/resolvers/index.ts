@@ -3,7 +3,7 @@ import { FAVOURITES } from "../../constants";
 
 export default {
   Query: {
-    getFavourites: async (_:null, __:null, { dataSources }: any) => {
+    favourites: async (_:null, __:null, { dataSources }: any) => {
       return await dataSources.favoritesAPI.getToFavorites();
     },
   },

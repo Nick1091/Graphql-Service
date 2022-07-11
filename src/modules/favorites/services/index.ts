@@ -1,4 +1,5 @@
 import { RequestOptions, RESTDataSource } from 'apollo-datasource-rest';
+import { CONST_ERRORS } from '../../constants';
 
 export default class FavoritesAPI extends RESTDataSource {
   constructor() {
@@ -19,7 +20,12 @@ export default class FavoritesAPI extends RESTDataSource {
     return  await this.put(`/remove`, args )
   }
   async getToFavorites() {
-    if (!this.context.token) return;
-    return  await this.get(`/`)
+    try{
+      if (!this.context.token) throw Error
+      return  await this.get(`/`)
+    } catch (err) {
+      (err as Error).message = CONST_ERRORS.USER_NOT_VALID
+      return err
+    }
   }
 };
