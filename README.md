@@ -1,3 +1,4 @@
+# Use code from develop branch
 ## Install Application
 - git clone https://github.com/Nick1091/Graphql-Service.git
 - checkout develop branch
